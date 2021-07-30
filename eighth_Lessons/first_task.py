@@ -1,6 +1,4 @@
 
-
-
 class Books:
     def __init__(self, author, book_name, publishing_year, book_genre):
         self.author = author
@@ -15,16 +13,17 @@ class Books:
         return f'\nAuthor: {self.author} \nBook name: {self.book_name} \nThe year of publishing: {self.publishing_year} \nBook genre: {self.book_genre}\n'
 
     def __eq__(self, other):
-        return isinstance(other, Books) and Books.__repr__(self) == Books.__str__(self)
+        return self.author == other.author and \
+               self.book_name == other.book_name and \
+               self.publishing_year == other.publishing_year and \
+               self.book_genre == other.book_genre
 
 
 first_Book = Books('Bob', "Bob's history", 2000, 'History')
 second_Book = Books('Alfred', 'Interesting history about Lion', 1992, 'Drama')
 
-if first_Book == second_Book:
-    print(first_Book)
-    print(second_Book)
-else:
-    print(second_Book)
+print(first_Book)
+print(second_Book)
+print(first_Book == second_Book)
 
 

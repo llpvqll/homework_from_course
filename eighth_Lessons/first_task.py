@@ -21,9 +21,11 @@ class Books:
 
 first_Book = Books('Bob', "Bob's history", 2000, 'History')
 second_Book = Books('Alfred', 'Interesting history about Lion', 1992, 'Drama')
+third_Book = Books('Bob', "Bob's history", 2000, 'History')
 
 print(first_Book)
 print(second_Book)
 print(first_Book == second_Book)
+print(first_Book == third_Book)
 
 

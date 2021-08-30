@@ -9,7 +9,7 @@ data = {
     'five': 'water',
 }
 
-# pickle.dump(data, open('data.pkl', 'wb', pickle.HIGHEST_PROTOCOL))
+pickle.dump(data, open('data.pkl', 'wb', pickle.HIGHEST_PROTOCOL))
 
 with open('data.pkl', 'rb') as f:
     ready_to_write = f.read()

@@ -1,44 +1,21 @@
 
-def add_links(links):
-    original_links = input("Enter url: ")
-    short_name = None
-    while not short_name or short_name in links:
-        short_name = input("Enter short name: ")
-        if short_name in links:
-            print(f"Short name already exist (url: {links[short_name]})")
-    links[short_name] = original_links
 
+class LinksDB:
 
-def get_links(links):
+    def __init__(self):
+        self._links = {}
 
-    name = input("Enter name of link: ")
-    url = links.get(name, None)
+    def get_link(self, name):
 
-    if url:
-        print(url)
-    else:
-        print('Link dose not exist!')
+        return self._links[name]
 
+    def set_link(self, name, url):
 
-def main():
+        if not name:
+            raise KeyError('Link name cannot be empty!', name)
+        if not url:
+            raise ValueError('Invalid link URL!', url)
+        if name in self._links:
+            raise KeyError("Name already exists!", name)
 
-    links = {}
-
-    while True:
-        print("1. Add links")
-        print("2. Get links")
-        print("3. Exit")
-
-        confirm = input('> ')
-        if confirm == '1':
-            add_links(links)
-        elif confirm == '2':
-            get_links(links)
-        elif confirm == '3':
-            break
-        else:
-            print('Incorrect Input')
-
-
-if __name__ == '__main__':
-    main()
+        self._links[name] = url

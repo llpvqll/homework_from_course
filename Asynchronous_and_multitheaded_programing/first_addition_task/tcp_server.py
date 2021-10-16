@@ -1,4 +1,6 @@
-import socket, time, sys
+import socket
+import time
+import sys
 import threading
 
 TCP_IP = input("Host IP: ")
@@ -20,6 +22,14 @@ def listening():
             print("User joined with IP %s" % (addr[0]))
             while 1:
                 data = conn.recv(BUFFER_SIZE)
+                result_list = []
+
+                for item in data.split(b','):
+                    item = int(item)
+                    result_list.append(item)
+                integer_result = sum(result_list)
+                print(f"{result_list[0]} + {result_list[1]} = {integer_result}")
+                conn.send(f"{result_list[0]} + {result_list[1]} = {integer_result}".encode('ascii'))
                 if not data:
                     break
                 conn.send(addr[0].encode("utf-8") + b': ' + data)

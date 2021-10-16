@@ -1,4 +1,6 @@
-import socket, sys, time
+import socket
+import sys
+import time
 
 TCP_IP = input("Connect to Local IP: ")
 TCP_PORT = int(input("Connect to Local Port: "))
@@ -11,16 +13,16 @@ while True:
     try:
 
         print("Connecting...")
-        s.connect((TCP_IP,TCP_PORT))
+        s.connect((TCP_IP, TCP_PORT))
         print("Connected!")
         while True:
-            MESSAGE = input("Message: ")
+            MESSAGE = input("Enter two numbers split by coma(without space): ")
             if MESSAGE == "close":
                 s.close()
                 raise SystemExit
             s.send(MESSAGE.encode('ascii'))
             data = s.recv(BUFFER_SIZE)
-            print(data.decode("utf-8"))
+            print(data.decode('ascii'))
 
             running = False
             time.sleep(3)

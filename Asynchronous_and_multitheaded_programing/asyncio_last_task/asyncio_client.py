@@ -1,6 +1,9 @@
 import asyncio
 
 
+two_num = input('Enter two number split by coma(without space): ')
+
+
 async def tcp_echo_client(message):
     reader, writer = await asyncio.open_connection(
         '127.0.0.1', 8888)
@@ -10,10 +13,10 @@ async def tcp_echo_client(message):
     await writer.drain()
 
     data = await reader.read(100)
-    print(f'Received: {data.decode()!r}')
+    print(f'Result: {data.decode("ascii")!r}')
 
     print('Close the connection')
     writer.close()
     await writer.wait_closed()
 
-asyncio.run(tcp_echo_client('Hello World!'))
+asyncio.run(tcp_echo_client(two_num))

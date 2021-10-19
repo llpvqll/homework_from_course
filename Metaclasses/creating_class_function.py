@@ -1,9 +1,9 @@
 def creating_class_function():
-    MyShinyClass = type('Car', (), {'color': "green", 'doors_count': 4, 'horse_power': 150})
+    car = type('Car', (), {'color': "green", 'doors_count': 4, 'horse_power': 150})
 
-    print(type(MyShinyClass))
-    print(MyShinyClass.__class__)
-    print(MyShinyClass)
+    print(type(car))
+    print(car.__class__)
+    print(car)
 
 
 if __name__ == "__main__":

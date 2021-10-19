@@ -1,11 +1,25 @@
-def creating_class_function():
-    car = type('Car', (), {'color': "green", 'doors_count': 4, 'horse_power': 150})
 
-    print(type(car))
-    print(car.__class__)
-    print(car)
+def creating_class_function(class_name, base_class, attrs):
+    new_attrs = {}
+    for attr, value in attrs.items():
+        new_attrs[attr.lower()] = value
 
+    return type(class_name, base_class, new_attrs)
+
+
+attr = {
+    'speed': 120,
+    'Mark': 'Audi',
+    'Color': 'Green'}
 
 if __name__ == "__main__":
-    creating_class_function()
+    Car = creating_class_function('Car', (), attr)
+
+print(Car)
+print(type(Car))
+print(Car.__class__)
+print(Car.speed.__class__)
+
+
+
 

@@ -1,0 +1,2 @@
+class Except(type):
+    pass

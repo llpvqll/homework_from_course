@@ -6,7 +6,7 @@ class Directory:
         self.sub_directory = sub_directory
 
     @staticmethod
-    def add_sub_directory(self, name: str, root: dir, files: list, sub_directory: list[dir]):
+    def add_sub_directory(self, name, root: dir, files: list, sub_directory: list[dir]):
         return Directory(name=name, root=root, files=files, sub_directory=sub_directory)
 
     @staticmethod

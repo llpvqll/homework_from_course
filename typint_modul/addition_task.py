@@ -5,6 +5,22 @@ class Directory:
         self.files = files
         self.sub_directory = sub_directory
 
+    @staticmethod
+    def add_sub_directory(self, name: str, root: dir, files: list, sub_directory: list[dir]):
+        return Directory(name=name, root=root, files=files, sub_directory=sub_directory)
+
+    @staticmethod
+    def remove_sub_directory(self, name: str, root: dir, files: list, sub_directory: list[dir]):
+        return Directory(name=name, root=None, files=files, sub_directory=sub_directory)
+
+    @staticmethod
+    def add_file(self, name: str, direct: dir):
+        return File(name=name, direct=direct)
+
+    @staticmethod
+    def remove_file(self, name: str, direct: dir):
+        return File(name=name, direct=None)
+
 
 class File:
     def __init__(self, name: str, direct: dir):
@@ -12,21 +28,5 @@ class File:
         self.directory = direct
 
 
-def add_sub_directory(name: str, root: dir, files: list, sub_directory: list[dir]) -> Directory:
-    return Directory(name=name, root=root, files=files, sub_directory=sub_directory)
-
-
-def remove_sub_directory(name: str, root: dir, files: list, sub_directory: list[dir]) -> Directory:
-    return Directory(name=name, root=None, files=files, sub_directory=sub_directory)
-
-
-def add_file(name: str, direct: dir) -> File:
-    return File(name=name, direct=direct)
-
-
-def remove_file(name: str, direct: dir) -> File:
-    return File(name=name, direct=None)
-
-
-directory: Directory = add_sub_directory('python_example.py', '/', ['example'], ['/'])
-file: File = add_file('py.py', 'exam/')
+directory: Directory = Directory('python_example.py', '/', ['example'], ['/'])
+file: File = File('py.py', 'exam/')
